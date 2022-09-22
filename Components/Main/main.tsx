@@ -4,11 +4,28 @@ import { styles } from "./styles.js";
 
 export default function MainScreen() {
   const [data, setData] = useState([]);
+  // const user_id = data['user_id'];
+  // const joinSessionPost = () => {
+  //   fetch("https://localhost:8000/api/users/join_session", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       email: email,
+  //       password: password,
+
+  //       data['user_id']:,
+  //       session_id,
+  //       role: member
+  //     }),
+  //   })
+  // };
 
   useEffect(() => {
     fetch("http://localhost:8000/api")
       .then((response) => response.text())
-      .then((json) => setData(json))
+      .then((json) => setData([json]))
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
   }, []);
@@ -27,6 +44,7 @@ export default function MainScreen() {
         <View style={{ flex: 1 }}>
           <TouchableOpacity
             style={[styles.sessionBtn, { justifyContent: "flex-end" }]}
+            // onPress={joinSessionPost}
           >
             <Text style={styles.loginText}> + Join Session</Text>
           </TouchableOpacity>
