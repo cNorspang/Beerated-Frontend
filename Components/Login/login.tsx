@@ -17,7 +17,7 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
     if (email == "" || password == "") { alert("Please enter an email and password");} 
     else if (!validateEmail(email)) { alert("Please enter a valid email");} 
     else {
-      fetch("https://localhost:8000/api/users/login", {
+      fetch("http://localhost:8000/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
